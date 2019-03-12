@@ -1,4 +1,4 @@
-#ifdef LEXICAL_ANALYSIS_H
+#ifndef LEXICAL_ANALYSIS_H
 #define LEXICAL_ANALYSIS_H
 
 enum token_type{
