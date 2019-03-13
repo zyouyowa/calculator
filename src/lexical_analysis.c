@@ -38,6 +38,8 @@ enum token_type char2token(char c)
         case '-': ret = OP_MINUS; break;
         case '*': ret = OP_MUL; break;
         case '/': ret = OP_DIV; break;
+        case '(': ret = L_BRACKET; break;
+        case ')': ret = R_BRACKET; break;
         case '\n': ret = NEW_LINE; break;
         case ' ':
         case '\t': 
@@ -64,6 +66,8 @@ char token2char(enum token_type token){
         case OP_MINUS: ret = '-'; break;
         case OP_MUL: ret = '*'; break;
         case OP_DIV: ret = '/'; break;
+        case L_BRACKET: ret = '('; break;
+        case R_BRACKET: ret = ')'; break;
         case NEW_LINE: ret = '\n'; break;
         case WHITE_SPACE: ret = ' '; break;
         default: ret = UNDEFINED;

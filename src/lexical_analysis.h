@@ -1,6 +1,12 @@
 #ifndef LEXICAL_ANALYSIS_H
 #define LEXICAL_ANALYSIS_H
 
+#define list_for_each(pos, head) \
+    for(pos = (head); pos != NULL; pos = pos->next)
+
+#define next_pos(pos) \
+    pos = &((*pos)->next)
+
 enum token_type{
     NUM_0 = 0,      //"0"
     NUM_1,          //"1"
@@ -16,6 +22,8 @@ enum token_type{
     OP_MINUS,       //"-"
     OP_MUL,         //"*"
     OP_DIV,         //"/"
+    L_BRACKET,      //"("
+    R_BRACKET,      //")"
     NEW_LINE,       //"\n"
     WHITE_SPACE,    //" ", "\t"
     UNDEFINED
