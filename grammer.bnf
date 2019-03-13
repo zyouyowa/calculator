@@ -1,7 +1,7 @@
-<exp> ::= <term> <next exp>
-<next exp> ::= "+" <term> <next exp> | "-" <term> <next exp> | <end>
+<expr> ::= <term> <next expr>
+<next expr> ::= "+" <term> <next expr> | "-" <term> <next exp> | <end>
 <term> ::= <factor> <next term>
 <next term> ::= "*" <factor> <next term> | "/" <factor> <next term> | <end>
-<factor> ::= <number> | "(" <exp> ")"
+<factor> ::= <number> | "(" <expr> ")"
 <number> ::= <digit> | <digit> <number>
 <digit> ::= "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9"
