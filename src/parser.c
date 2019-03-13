@@ -1,16 +1,7 @@
 #include <stdio.h>
 #include "lexical_analysis.h"
 
-
-int expr(struct token_list_node** pos);
-int next_expr(struct token_list_node** pos, int pre);
-int term(struct token_list_node** pos);
-int next_term(struct token_list_node** pos, int pre);
-int factor(struct token_list_node** pos);
-int number(struct token_list_node** pos);
-int digit(struct token_list_node** pos);
-
-
+/*
 int main(int argc, char const *argv[])
 {
     const char* str = "-6 + 3 * (70/5 - 6)\n";
@@ -24,6 +15,7 @@ int main(int argc, char const *argv[])
     del_list(head);
     return 0;
 }
+*/
 
 int expr(struct token_list_node** pos){
     int t, ret;
