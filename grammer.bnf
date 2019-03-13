@@ -1,4 +1,4 @@
-<exp> ::= "\n" | <term> <next exp>
+<exp> ::= <term> <next exp>
 <next exp> ::= "+" <term> <next exp> | "-" <term> <next exp> | <end>
 <term> ::= <factor> <next term>
 <next term> ::= "*" <factor> <next term> | "/" <factor> <next term> | <end>

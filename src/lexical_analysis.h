@@ -24,7 +24,6 @@ enum token_type{
     OP_DIV,         //"/"
     L_BRACKET,      //"("
     R_BRACKET,      //")"
-    NEW_LINE,       //"\n"
     WHITE_SPACE,    //" ", "\t"
     UNDEFINED
 };
