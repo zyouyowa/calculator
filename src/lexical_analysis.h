@@ -5,7 +5,7 @@
     for(pos = (head); pos != NULL; pos = pos->next)
 
 #define next_pos(pos) \
-    pos = &((*pos)->next)
+    *pos = (*pos)->next
 
 enum token_type{
     NUM_0 = 0,      //"0"
