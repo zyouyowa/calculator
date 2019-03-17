@@ -36,7 +36,7 @@ struct token_list_node{
 enum token_type char2token(char c);
 char token2char(enum token_type token);
 
-struct token_list_node* lexical_analysis(char* str, size_t length);
+struct token_list_node* lexical_analysis(char* str, int length);
 struct token_list_node* add_node(enum token_type token, struct token_list_node* tail);
 void del_list(struct token_list_node* head);
 

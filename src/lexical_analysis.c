@@ -74,7 +74,7 @@ char token2char(enum token_type token){
     return ret;
 }
 
-struct token_list_node* lexical_analysis(char* str, size_t length)
+struct token_list_node* lexical_analysis(char* str, int length)
 {
     size_t i;
 
