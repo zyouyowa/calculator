@@ -21,7 +21,6 @@ int main(int argc, char const *argv[])
 
 int expr(struct token_list_node** pos){
     int t, ret;
-    struct token_list_node* node = *pos;
 
     t = term(pos);
     ret = next_expr(pos, t);
@@ -31,14 +30,13 @@ int expr(struct token_list_node** pos){
 
 int next_expr(struct token_list_node** pos, int pre){
     int ret, mid_ret;
-    struct token_list_node* node = *pos;
 
-    if(node->tt == OP_PLUS){
+    if((*pos)->tt == OP_PLUS){
         next_pos(pos);
         mid_ret = pre + term(pos);
         ret = next_expr(pos, mid_ret);
     }
-    else if(node->tt == OP_MINUS){
+    else if((*pos)->tt == OP_MINUS){
         next_pos(pos);
         mid_ret = pre - term(pos);
         ret = next_expr(pos, mid_ret);
@@ -51,7 +49,6 @@ int next_expr(struct token_list_node** pos, int pre){
 
 int term(struct token_list_node** pos){
     int f, ret;
-    struct token_list_node* node = *pos;
 
     f = factor(pos);
     ret = next_term(pos, f);
@@ -61,17 +58,16 @@ int term(struct token_list_node** pos){
 
 int next_term(struct token_list_node** pos, int pre){
     int ret, mid_ret;
-    struct token_list_node* node = *pos;
 
-    if(node->tt == OP_MUL){
+    if((*pos)->tt == OP_MUL){
         next_pos(pos);
         mid_ret = pre * factor(pos);
-        ret = next_expr(pos, mid_ret);
+        ret = next_term(pos, mid_ret);
     }
-    else if(node->tt == OP_DIV){
+    else if((*pos)->tt == OP_DIV){
         next_pos(pos);
-        ret = pre / factor(pos);
-        next_term(pos, ret);
+        mid_ret = pre / factor(pos);
+        ret = next_term(pos, mid_ret);
     } else {
         //<end>
         ret = pre;
@@ -82,12 +78,11 @@ int next_term(struct token_list_node** pos, int pre){
 
 int factor(struct token_list_node** pos){
     int ret;
-    struct token_list_node* node = *pos;
 
-    if(node->tt == L_BRACKET){
+    if((*pos)->tt == L_BRACKET){
         next_pos(pos);
         ret = expr(pos);
-        if(node->tt == R_BRACKET){
+        if((*pos)->tt == R_BRACKET){
             next_pos(pos);
         }
     } else {
