@@ -1,4 +1,5 @@
 #include "lexical_analysis.h"
+#include "parser.h"
 
 /*
 #include <string.h>
