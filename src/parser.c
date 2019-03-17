@@ -1,10 +1,12 @@
 #include "lexical_analysis.h"
 
 /*
+#include <string.h>
+
 int main(int argc, char const *argv[])
 {
-    const char* str = "-6 + 3 * (70/5 - 6)\n";
-    struct token_list_node* head = lexical_analysis(str);
+    char* str = "-6 + 3 * (70/5 - 6)\n";
+    struct token_list_node* head = lexical_analysis(str, strlen(str));
     struct token_list_node* pos = head;
 
     int result = expr(&pos);

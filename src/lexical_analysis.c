@@ -1,12 +1,13 @@
-#include <string.h>
 #include <stdlib.h>
 #include "lexical_analysis.h"
 
 /*
+#include <string.h>
+
 int main(int argc, char const *argv[])
 {
-    const char* str = "-6 + 3 * (70/5 - 6)\n";
-    struct token_list_node* head = lexical_analysis(str);
+    char* str = "-6 + 3 * (70/5 - 6)\n";
+    struct token_list_node* head = lexical_analysis(str, strlen(str));
     struct token_list_node* node;
 
     for(node = head; node != NULL; node = node->next){
@@ -73,10 +74,9 @@ char token2char(enum token_type token){
     return ret;
 }
 
-struct token_list_node* lexical_analysis(const char* str)
+struct token_list_node* lexical_analysis(char* str, size_t length)
 {
     size_t i;
-    size_t length = strlen(str);
 
     struct token_list_node* head;
     head = malloc(sizeof(*head));
